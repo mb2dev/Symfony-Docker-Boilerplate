@@ -9,6 +9,9 @@ This project is a boilerplate for setting up a Symfony application using Docker 
 - Nginx container for serving the application.
 - Easy-to-use `Makefile` for common tasks (building, starting, stopping, and clearing cache).
 - Docker Compose configuration for containerized setup.
+- PHPCS: Code style enforcement.
+- PHPStan: Static code analysis for finding bugs.
+- PHPUnit: Unit testing framework.
 
 ---
 
@@ -54,7 +57,6 @@ Your Symfony application will be available under the app folder.
 | `make composer-clear-cache`    | Clear composer cache               |
 
 ### Docker
-
 | Command                       | Description                       |
 |:------------------------------|:----------------------------------|
 | `make build`                  | Build Docker images               |
@@ -65,6 +67,14 @@ Your Symfony application will be available under the app folder.
 | `make logs`                   | Display container logs            |
 | `make exec-php-fpm`           | Open bash in PHP-FPM container    |
 | `make exec-nginx`             | Open shell in Nginx container     |
+
+### Quality Tools
+| Command               | Description                             |
+|:----------------------|:----------------------------------------|
+| `make phpcs`          | Check code style based on PSR-12        |
+| `make phpcbf`         | Fix coding style issues based on PSR-12 |
+| `make phpstan`        | Analyze code for bugs and errors        |
+| `make phpunit`        | Run unit tests                          |
 
 ### Helpers
 | Command      | Description                  |
