@@ -16,10 +16,11 @@ init: ## Init a new Symfony Project
 	mkdir -p ./app
 	$(MAKE) build
 	$(MAKE) start
-	$(COMPOSER) create-project symfony/skeleton:"7.0.*" .
+	$(COMPOSER) create-project symfony/skeleton:"7.3.*" .
 	$(MAKE) install-phpcs
 	$(MAKE) install-phpstan
 	$(MAKE) install-phpunit
+	$(MAKE) install-sf-dependencies
 	@$(call BLUE,"The application is available at: http://127.0.0.1:8080/.")
 
 
@@ -55,6 +56,11 @@ install-phpunit: ## Install PHPUnit
 	$(COMPOSER) require --dev phpunit/phpunit --no-interaction
 	@cp phpunit.xml.dist app/phpunit.xml.dist
 	@$(call BLUE,"PHPUnit installed and configured successfully.")
+
+install-sf-dependencies: ## Install SF tools
+	$(COMPOSER) require --dev symfony/maker-bundle --no-interaction
+	$(COMPOSER) require --dev symfony/web-profiler-bundle --no-interaction
+	@$(call BLUE,"SF dev dependencies installed and configured successfully.")
 
 
 ## —— 🐳 Docker —————————————————————————————————————————————————————————————————
